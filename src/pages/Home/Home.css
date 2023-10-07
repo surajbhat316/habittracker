@@ -5,6 +5,7 @@
 }
 #habitForm{
     width: 40%;
+    min-width: 300px;
     padding: 1rem;
     margin-top: 10%;
     box-shadow: 0px 0px 19px 0px lightgrey;
