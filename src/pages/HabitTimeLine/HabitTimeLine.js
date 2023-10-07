@@ -52,6 +52,37 @@ export default function HabitTimeLine() {
     updateDB();
 
   }
+
+
+  function checkDate(date,month,year){
+    console.log("Enters check date");
+    const today = new Date();
+    const todayDate = today.getDate();
+    const todayMonth = today.getMonth() +1;
+    const todayYear = today.getFullYear();
+
+    let dateDifference = parseInt(todayDate) -  parseInt(date)
+    console.log("today date" ,todayDate);
+    console.log("date" ,date);
+    if(dateDifference < 7 && parseInt(date) <= parseInt(todayDate) && parseInt(month) <= parseInt(todayMonth) && parseInt(year) <= parseInt(todayYear)){
+      return false;
+    }
+    return true;
+  }
+
+  function checkIfToday(date,month,year){
+    const today = new Date();
+    const todayDate = today.getDate();
+    const todayMonth = today.getMonth() +1;
+    const todayYear = today.getFullYear();
+    if(parseInt(date) === parseInt(todayDate) && parseInt(month) === parseInt(todayMonth) && parseInt(year) === parseInt(todayYear)){
+      return true;
+    }
+    return false;
+
+  }
+
+
   return (
     <div>
       <div>
@@ -59,15 +90,18 @@ export default function HabitTimeLine() {
         let key = "week_"+i;
         return (
           <div key={i}>
-            <h2>Week {i} of {name}</h2>
+            <h2 className="text-center">Week {i} of {name}</h2>
             <div className="container1">
             {item[key].map((val, j) => {
               return (
-                    <div key={j}>
-                      <p>{val.day}</p>
-                      <p>{val.date} / {val.month} / {val.year}</p>
-                      <p>{val.completed? "Completed" :"In Progress"}</p>
-                      <button onClick={() => handleStatus(item, key, val)}>{!val.completed?"Mark as Completed": "Mark as In Progress"}</button>
+                    <div className={checkIfToday(val.date, val.month, val.year)?"today":"notToday" } key={j}>
+                      <p>Day : <b>{val.day}</b></p>
+                      <p>Date : <b>{val.date}/{val.month}/{val.year}</b></p>
+                      <p>Status : <b>{val.completed? "Completed" :"Not Completed"}</b></p>
+                      <button className="btn btn-secondary" onClick={() => handleStatus(item, key, val)}
+                        disabled ={checkDate(val.date, val.month,val.year )}
+                      
+                      >{!val.completed?"Mark as Completed": "Mark as Not Completed"}</button>
                     </div>
               );
             })}
