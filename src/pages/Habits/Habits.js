@@ -15,7 +15,11 @@ export default function Habits() {
   },[dispatch]);
   return (
     <div id="habitsContainer">
-
+      <div className="add_btn">
+        <NavLink style={{color: "white", textDecoration: "none"}} id="createNew" to="/">
+            Add New Habit
+        </NavLink>
+      </div>
       {habits.map((habit,i) => {
 
         return (

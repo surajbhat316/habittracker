@@ -36,3 +36,14 @@
 .link:hover{
     color: grey !important;
 }
+
+.add_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    background-color: black;
+    border-radius: 1rem;;
+    margin: 1rem;
+}

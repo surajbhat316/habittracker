@@ -126,7 +126,7 @@ export default function Home() {
             <input className="form-control" ref={habitName} type="text" required placeholder="Habit Name" />
           </div>
           <div>
-            <input className="form-control" ref={numberOfDays} type="number" required placeholder="No of days" />
+            <input className="form-control" ref={numberOfDays} type="number" required placeholder="No of days" min="1" max="50" />
           </div>
           <div>
             <button className="btn btn-primary">Submit</button>
