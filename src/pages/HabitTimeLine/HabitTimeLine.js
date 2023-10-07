@@ -29,7 +29,15 @@ export default function HabitTimeLine() {
         itemClone[key].forEach((v) => {
             let clonedObject = {...v};
             if(clonedObject.date === val.date && clonedObject.day === val.day && clonedObject.year === val.year){
-              clonedObject.completed = !clonedObject.completed; 
+              if(clonedObject.completed === "none"){
+                clonedObject.completed = "done"
+              }
+              else if(clonedObject.completed === "done"){
+                clonedObject.completed = "not done"
+              }
+              else{
+                clonedObject.completed = "none";
+              }
             }
             newList.push(clonedObject);
         })
@@ -55,15 +63,12 @@ export default function HabitTimeLine() {
 
 
   function checkDate(date,month,year){
-    console.log("Enters check date");
     const today = new Date();
     const todayDate = today.getDate();
     const todayMonth = today.getMonth() +1;
     const todayYear = today.getFullYear();
 
-    let dateDifference = parseInt(todayDate) -  parseInt(date)
-    console.log("today date" ,todayDate);
-    console.log("date" ,date);
+    let dateDifference = parseInt(todayDate)+ -  parseInt(date)
     if(dateDifference < 7 && parseInt(date) <= parseInt(todayDate) && parseInt(month) <= parseInt(todayMonth) && parseInt(year) <= parseInt(todayYear)){
       return false;
     }
@@ -97,11 +102,11 @@ export default function HabitTimeLine() {
                     <div className={checkIfToday(val.date, val.month, val.year)?"today":"notToday" } key={j}>
                       <p>Day : <b>{val.day}</b></p>
                       <p>Date : <b>{val.date}/{val.month}/{val.year}</b></p>
-                      <p>Status : <b>{val.completed? "Completed" :"Not Completed"}</b></p>
+                      <p>Status : <b>{val.completed}</b></p>
                       <button className="btn btn-secondary" onClick={() => handleStatus(item, key, val)}
                         disabled ={checkDate(val.date, val.month,val.year )}
                       
-                      >{!val.completed?"Mark as Completed": "Mark as Not Completed"}</button>
+                      >{val.completed === "none"?"Mark as Done": val.completed === "done" ? "Mark as Not Done":"Mark as None"}</button>
                     </div>
               );
             })}

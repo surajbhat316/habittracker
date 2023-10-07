@@ -67,7 +67,7 @@ export default function Home() {
                 "month": newDate.getMonth()+1,
                 "year": newDate.getFullYear(),
                 "day": days[newDate.getDay()],
-                "completed": false
+                "completed": "none"
             }
 
             weeks.push(newDateObject);
