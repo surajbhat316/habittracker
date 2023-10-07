@@ -90,6 +90,7 @@ export default function HabitTimeLine() {
 
   return (
     <div>
+      {routine.length ===0 && <p className="text-center">No such routine found</p>}
       <div>
       {routine.map((item,i) => {
         let key = "week_"+i;
