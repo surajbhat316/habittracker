@@ -64,12 +64,12 @@ export default function HabitTimeLine() {
 
   function checkDate(date,month,year){
     const today = new Date();
-    const todayDate = today.getDate();
-    const todayMonth = today.getMonth() +1;
-    const todayYear = today.getFullYear();
-
-    let dateDifference = parseInt(todayDate)+ -  parseInt(date)
-    if(dateDifference < 7 && parseInt(date) <= parseInt(todayDate) && parseInt(month) <= parseInt(todayMonth) && parseInt(year) <= parseInt(todayYear)){
+    today.setDate(today.getDate())
+    let dateString = month+"/"+date+"/"+year;
+    const prevDate = new Date(dateString);
+    const diffTime = (today - prevDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    if(diffTime >=0 && diffDays >= 0 && diffDays <= 7 ){
       return false;
     }
     return true;
