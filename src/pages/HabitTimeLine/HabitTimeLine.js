@@ -64,7 +64,6 @@ export default function HabitTimeLine() {
 
   function checkDate(date,month,year){
     const today = new Date();
-    today.setDate(today.getDate())
     let dateString = month+"/"+date+"/"+year;
     const prevDate = new Date(dateString);
     const diffTime = (today - prevDate);
