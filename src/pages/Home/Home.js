@@ -61,7 +61,7 @@ export default function Home() {
             newDate.setDate(date.getDate() + i);
 
             let newDateObject = {
-                "habitName": "Cycling",
+                "habitName": habitName.current.value.toLowerCase(),
                 "week": "week "+count,
                 "date": newDate.getDate(),
                 "month": newDate.getMonth()+1,
