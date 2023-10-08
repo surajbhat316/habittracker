@@ -1,3 +1,13 @@
+<h1>Habit Tracker App</h1>
+<p>To tun this app on your local machine<, Follow the following steps/p>
+<ol>
+  <li>Download the zip file of the project and extract the same </li>
+  <li>Open the folder in VS Code</li>
+  <li>In the terminal type npm install</li>
+  <li>Finally run the npm start command to run the application</li>
+</ol>
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
