@@ -6,7 +6,7 @@ export default function NavigationBar() {
     <div>
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
-                <Navbar.Brand href="/">Habit-Tracker</Navbar.Brand>
+                <Navbar.Brand>Habit-Tracker</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
