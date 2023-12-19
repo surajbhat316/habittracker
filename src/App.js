@@ -1,5 +1,5 @@
 
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import Habits from "./pages/Habits/Habits";
 import Home from "./pages/Home/Home";
@@ -8,7 +8,7 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
 function App() {
 
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {path: "/", element: <NavigationBar /> ,errorElement: <ErrorPage/>, children: [
       {index: true, element: <Home />},
       {path: "habits", element: <Habits />},
